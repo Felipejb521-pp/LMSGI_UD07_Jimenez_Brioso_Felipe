@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template name = "Factura WillamnTech">
+        
+        <!--Cabecera factura-->
+        <p> <span t-field =" doc.name"></span></p>
+        <p> <span t-field = "doc.spane"></span></p>
+        <p> <span t-field = "doc.amount_total"></span></p>
+        
+        <!--Lineas factura-->
+        <table>
+        <t t-foreach="doc.invoice_line_ids" t-as="linea">
+            <p>linea_id</p>
+            <p>linea_price</p>
+        
+            <t t-if="descuento">
+                <p>ocultar</p>
+            </t>
+        </t>
+        </table>
+    </template>
+</odoo>
