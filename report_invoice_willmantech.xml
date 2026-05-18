@@ -4,17 +4,23 @@
         
         <!--Cabecera factura-->
         <p> <span t-field =" doc.name"></span></p>
-        <p> <span t-field = "doc.spane"></span></p>
+        <p> <span t-field = "doc.date"></span></p>
         <p> <span t-field = "doc.amount_total"></span></p>
         
         <!--Lineas factura-->
         <table>
         <t t-foreach="doc.invoice_line_ids" t-as="linea">
-            <p>linea_id</p>
-            <p>linea_price</p>
-        
-            <t t-if="descuento">
-                <p>ocultar</p>
+            <!--tr abre fila-->    
+            <tr>
+                <!--td contenido celda-->    
+                <td><span t-field="linea.id"/></td>
+                <td><span t-field="linea.price"/></td>
+            </tr>
+            <t t-if="linea.discount">
+                <tr>
+                    <td>Descuento:</td>     
+                    <td> <span t-field="linea.discount"></span></td>    
+                </tr>
             </t>
         </t>
         </table>
