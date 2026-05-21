@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template name = "Factura WillamnTech">
-        
-        <!--Cabecera factura-->
-        <p> <span t-field =" doc.name"></span></p>
-        <p> <span t-field = "doc.date"></span></p>
-        <p> <span t-field = "doc.amount_total"></span></p>
-        
-        <!--Lineas factura-->
-        <table>
-        <t t-foreach="doc.invoice_line_ids" t-as="linea">
-            <!--tr abre fila-->    
-            <tr>
-                <!--td contenido celda-->    
-                <td><span t-field="linea.id"/></td>
-                <td><span t-field="linea.price"/></td>
-            </tr>
-            <t t-if="linea.discount">
-                <tr>
-                    <td>Descuento:</td>     
-                    <td> <span t-field="linea.discount"></span></td>    
-                </tr>
+    <template id="factura_willamn_tech" name="Factura WillamnTech">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                
+                <!-- Cabecera factura -->
+                <p><span t-field="doc.name"/></p>
+                <p><span t-field="doc.invoice_date"/></p>
+                <p><span t-field="doc.amount_total"/></p>
+                
+                <!-- Líneas de factura -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Precio unitario</th>
+                            <th>Descuento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.invoice_line_ids" t-as="linea">
+                            <tr>
+                                <td><span t-field="linea.name"/></td>
+                                <td><span t-field="linea.price_unit"/></td>
+                                <td>
+                                    <t t-if="linea.discount">
+                                        <span t-field="linea.discount"/>%
+                                    </t>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                
             </t>
         </t>
-        </table>
     </template>
 </odoo>
