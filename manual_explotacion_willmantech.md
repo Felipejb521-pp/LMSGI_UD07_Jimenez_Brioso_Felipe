@@ -13,8 +13,16 @@
     |-Docker
     |-Docker compose
     |-Git
-    
+* 1º Clonar Repositorio git
+* 2º Crear Fichero
+* 3º Levantar los contenedores
+* 4º Verificar que los contenedores estan corriendo
 
 # Seguridad y control de acceso
+* ** Verificación mediante contraseña fuerte (8-16 caracteres)
+* ** Roles definidos de Administrador(Acceso total), Contable y Comercial
 
-# Procedimiento de 
+# Procedimiento de Backup y restauracion
+
+# Flujo Operativo de Facturación e Informes
+* **Acceso cliente web --> Proxy --> Aplicacion ERP --> Motor BD --> Almacenamiento de Archivos
